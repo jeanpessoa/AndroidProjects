@@ -95,28 +95,16 @@ public class BancoPersistencia extends Activity{
 			}
 		}
 		else{
-			Alterar(posicao);
+			AlterarRegistro(posicao);
 		}
 		
 		FecharBanco();
 	}
-	public boolean Alterar(int p){
+	public void Alterar(){
 		AbrirBanco();
 		//
-		try{
-			String sql = "UPDATE tabCadastroPessoa SET nomePessoa = '"+EditNome.getText().toString()+"', "
-					+ "senhaPessoa = '"+EditSenha.getText().toString()+"' WHERE _id = '"+id+"'";
-					BancoDados.execSQL(sql);
-					MensagemAlerta.alerta("Exito!", "Dados alterados com sucesso!",this);
-					return true;
-		}catch (Exception erro) {
-			MensagemAlerta.alerta("Erro!!!", "Não foi possivel alterar a seleção!!!"+erro,this);
-			return false;}
 		
-		finally{
-			FecharBanco();
-		}
-		//FecharBanco();
+		FecharBanco();
 	}
 	public void Apagar(){
 		AbrirBanco();
